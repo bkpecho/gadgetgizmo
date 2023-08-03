@@ -19,6 +19,7 @@ import reportWebVitals from './reportWebVitals';
 import OrderListScreen from './screens/Admin/OrderListScreen';
 import ProductEditScreen from './screens/Admin/ProductEditScreen';
 import ProductListScreen from './screens/Admin/ProductListScreen';
+import UserEditScreen from './screens/Admin/UserEditScreen';
 import UserListScreen from './screens/Admin/UserListScreen';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
@@ -52,6 +53,7 @@ const router = createBrowserRouter(
         <Route path="/admin/productlist" element={<ProductListScreen />} />
         <Route path="/admin/product/:id/edit" element={<ProductEditScreen />} />
         <Route path="/admin/userlist" element={<UserListScreen />} />
+        <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
       </Route>
     </Route>
   )
