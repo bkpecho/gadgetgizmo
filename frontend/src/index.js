@@ -1,4 +1,5 @@
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -8,15 +9,15 @@ import {
   Route,
   RouterProvider
 } from 'react-router-dom';
-import store from './store';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
-import './assets/styles/bootstrap.custom.css';
+import store from './store';
+// import './assets/styles/bootstrap.custom.css';
 import './assets/styles/index.css';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import reportWebVitals from './reportWebVitals';
 import OrderListScreen from './screens/Admin/OrderListScreen';
+import ProductEditScreen from './screens/Admin/ProductEditScreen';
 import ProductListScreen from './screens/Admin/ProductListScreen';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
@@ -48,6 +49,7 @@ const router = createBrowserRouter(
       <Route path="" element={<AdminRoute />}>
         <Route path="/admin/orderlist" element={<OrderListScreen />} />
         <Route path="/admin/productlist" element={<ProductListScreen />} />
+        <Route path="/admin/product/:id/edit" element={<ProductEditScreen />} />
       </Route>
     </Route>
   )
