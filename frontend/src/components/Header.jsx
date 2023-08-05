@@ -33,9 +33,9 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>
-              <img src={logo} alt="PinoyTechShop" />
-              PinoyTechShop
+            <Navbar.Brand className="d-flex gap-2 align-items-center">
+              <img src={logo} alt="Gadget Gizmo" />
+              Gadget Gizmo
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

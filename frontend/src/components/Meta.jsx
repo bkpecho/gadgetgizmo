@@ -11,7 +11,7 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: 'Welcome to PinoyTechShop!',
+  title: 'Welcome to Gadget Gizmo!',
   description: 'We sell the best tech products online.',
   keywords: 'pinoy, technology, electronics, buy gadgets'
 };
