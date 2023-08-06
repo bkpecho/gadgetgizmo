@@ -1,7 +1,7 @@
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
 import {
   createBrowserRouter,
@@ -10,9 +10,7 @@ import {
   RouterProvider
 } from 'react-router-dom';
 import App from './App';
-import store from './store';
-// import './assets/styles/bootstrap.custom.css';
-import { HelmetProvider } from 'react-helmet-async';
+import './assets/styles/bootstrap.min.css';
 import './assets/styles/index.css';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
@@ -32,6 +30,7 @@ import ProductScreen from './screens/ProductScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingScreen from './screens/ShippingScreen';
+import store from './store';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
