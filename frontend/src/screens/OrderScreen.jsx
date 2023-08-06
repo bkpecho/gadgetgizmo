@@ -45,7 +45,7 @@ const OrderScreen = () => {
           type: 'resetOptions',
           value: {
             'client-id': paypal.clientId,
-            currency: 'USD'
+            currency: 'PHP'
           }
         });
         paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
@@ -114,7 +114,7 @@ const OrderScreen = () => {
   ) : (
     <>
       <h1>Order {order._id}</h1>
-      <Row>
+      <Row className="pt-3">
         <Col md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
@@ -178,7 +178,7 @@ const OrderScreen = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x ₱{item.price} = ₱{item.qty * item.price}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -197,22 +197,22 @@ const OrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>${order.itemsPrice}</Col>
+                  <Col>₱{order.itemsPrice}</Col>
                 </Row>
 
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>${order.shippingPrice}</Col>
+                  <Col>₱{order.shippingPrice}</Col>
                 </Row>
 
                 <Row>
                   <Col>Tax</Col>
-                  <Col>${order.taxPrice}</Col>
+                  <Col>₱{order.taxPrice}</Col>
                 </Row>
 
                 <Row>
                   <Col>Total</Col>
-                  <Col>${order.totalPrice}</Col>
+                  <Col>₱{order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
               {!order.isPaid && (
@@ -226,8 +226,10 @@ const OrderScreen = () => {
                       <Button
                         onClick={onApproveTest}
                         style={{ marginBottom: '10px' }}
+                        className="w-100 rounded-1"
+                        variant="success"
                       >
-                        Test Pay Order
+                        Demo Pay Order
                       </Button>
                       <PayPalButtons
                         createOrder={createOrder}
