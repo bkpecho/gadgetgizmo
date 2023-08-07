@@ -2,7 +2,7 @@
 
 > eCommerce platform built with the MERN stack & Redux.
 
-Gadget Gizmo is a full-featured shopping cart with PayPal & credit/debit payments. See it in action at https://www.websitelink.dev
+Gadget Gizmo is a full-featured shopping cart with PayPal & credit/debit payments. See it in action at https://gadgetgizmo.cyclic.app/
 
 - [Features](#features)
 - [Usage](#usage)
@@ -11,6 +11,8 @@ Gadget Gizmo is a full-featured shopping cart with PayPal & credit/debit payment
   - [Run](#run)
 - [Build & Deploy](#build--deploy)
   - [Seed Database](#seed-database)
+- [License](#license)
+- [Author](#author)
 
 ## Features
 
@@ -59,7 +61,6 @@ npm install
 ### Run
 
 ```
-
 # Run frontend (:3000) & backend (:5000)
 npm run dev
 
