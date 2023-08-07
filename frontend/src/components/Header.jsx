@@ -1,5 +1,10 @@
+import {
+  faShoppingCart,
+  faToolbox,
+  faUser
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Badge, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { FaShoppingCart, FaToolbox, FaUser } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +49,7 @@ const Header = () => {
               <SearchBox />
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <FaShoppingCart /> Cart
+                  <FontAwesomeIcon icon={faShoppingCart} /> Cart
                   {cartItems.length > 0 && (
                     <Badge pill bg="success" style={{ marginLeft: '5px' }}>
                       {' '}
@@ -57,7 +62,7 @@ const Header = () => {
                 <NavDropdown
                   title={
                     <>
-                      <FaToolbox /> Admin
+                      <FontAwesomeIcon icon={faToolbox} /> Admin
                     </>
                   }
                   id="adminmenu"
@@ -77,7 +82,7 @@ const Header = () => {
                 <NavDropdown
                   title={
                     <>
-                      <FaUser /> {userInfo.name}
+                      <FontAwesomeIcon icon={faUser} /> {userInfo.name}
                     </>
                   }
                   id="username"
@@ -92,7 +97,7 @@ const Header = () => {
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>
-                    <FaUser /> Sign In
+                    <FontAwesomeIcon icon={faUser} /> Sign In
                   </Nav.Link>
                 </LinkContainer>
               )}

@@ -1,5 +1,6 @@
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Col, Row, Table } from 'react-bootstrap';
-import { FaEdit, FaTrash } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -56,7 +57,7 @@ const ProductListScreen = () => {
         </Col>
         <Col className="text-end">
           <Button className="btn-sm m-3" onClick={createProductHandler}>
-            <FaEdit /> Create Product
+            <FontAwesomeIcon icon={faEdit} /> Create Product
           </Button>
         </Col>
       </Row>
@@ -91,7 +92,7 @@ const ProductListScreen = () => {
                   <td>
                     <LinkContainer to={`/admin/product/${product._id}/edit`}>
                       <Button variant="light" className="btn-sm mx-2">
-                        <FaEdit />
+                        <FontAwesomeIcon icon={faEdit} />
                       </Button>
                     </LinkContainer>
                     <Button
@@ -99,7 +100,10 @@ const ProductListScreen = () => {
                       className="btn-sm"
                       onClick={() => deleteHandler(product._id)}
                     >
-                      <FaTrash style={{ color: 'white' }} />
+                      <FontAwesomeIcon
+                        icon={faTrash}
+                        style={{ color: 'white' }}
+                      />
                     </Button>
                   </td>
                 </tr>

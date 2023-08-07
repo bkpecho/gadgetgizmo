@@ -1,5 +1,11 @@
+import {
+  faCheck,
+  faEdit,
+  faTimes,
+  faTrash
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Table } from 'react-bootstrap';
-import { FaCheck, FaEdit, FaTimes, FaTrash } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { toast } from 'react-toastify';
 import Loader from '../../components/Loader';
@@ -55,15 +61,18 @@ const UserListScreen = () => {
                 </td>
                 <td>
                   {user.isAdmin ? (
-                    <FaCheck style={{ color: 'green' }} />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      style={{ color: 'green' }}
+                    />
                   ) : (
-                    <FaTimes style={{ color: 'red' }} />
+                    <FontAwesomeIcon icon={faTimes} style={{ color: 'red' }} />
                   )}
                 </td>
                 <td>
                   <LinkContainer to={`/admin/user/${user._id}/edit`}>
                     <Button variant="light" className="btn-sm">
-                      <FaEdit />
+                      <FontAwesomeIcon icon={faEdit} />
                     </Button>
                   </LinkContainer>
                   <Button
@@ -71,7 +80,10 @@ const UserListScreen = () => {
                     className="btn-sm"
                     onClick={() => deleteHandler(user._id)}
                   >
-                    <FaTrash style={{ color: 'white' }} />
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      style={{ color: 'white' }}
+                    />
                   </Button>
                 </td>
               </tr>

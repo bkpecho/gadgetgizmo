@@ -1,6 +1,10 @@
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Col, Container, Row } from 'react-bootstrap';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import logo from '../assets/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -26,7 +30,7 @@ const Footer = () => {
                   className="text-primary"
                   href="https://github.com/bkpecho/gadgetgizmo"
                 >
-                  <FaGithub />
+                  <FontAwesomeIcon icon={faGithub} />
                 </a>
               </li>
               <li className="ms-3">
@@ -34,12 +38,12 @@ const Footer = () => {
                   className="text-primary"
                   href="https://www.linkedin.com/in/bkpecho/"
                 >
-                  <FaLinkedin />
+                  <FontAwesomeIcon icon={faLinkedin} />
                 </a>
               </li>
               <li className="ms-3">
                 <a className="text-primary" href="https://twitter.com/bkpecho">
-                  <FaTwitter />
+                  <FontAwesomeIcon icon={faTwitter} />
                 </a>
               </li>
             </ul>

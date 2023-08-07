@@ -1,5 +1,6 @@
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Table } from 'react-bootstrap';
-import { FaTimes } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import Loader from '../../components/Loader';
 import Message from '../../components/Message';
@@ -38,14 +39,14 @@ const OrderListScreen = () => {
                   {order.isPaid ? (
                     order.paidAt.substring(0, 10)
                   ) : (
-                    <FaTimes style={{ color: 'red' }} />
+                    <FontAwesomeIcon icon={faTimes} style={{ color: 'red' }} />
                   )}
                 </td>
                 <td>
                   {order.isDelivered ? (
                     order.deliveredAt.substring(0, 10)
                   ) : (
-                    <FaTimes style={{ color: 'red' }} />
+                    <FontAwesomeIcon icon={faTimes} style={{ color: 'red' }} />
                   )}
                 </td>
                 <td>
