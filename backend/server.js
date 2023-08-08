@@ -34,8 +34,7 @@ app.get('/api/config/paypal', (req, res) =>
 // Connect to MongoDB before starting the server
 connectDB().then(() => {
   if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(process.env.CLOUDINARY_URL));
-
+    app.use(express.static(path.join(__dirname, '/frontend/dist')));
     const __dirname = path.resolve();
     app.get('*', (req, res) =>
       res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
