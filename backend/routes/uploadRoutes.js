@@ -2,7 +2,6 @@ import { v2 as cloudinary } from 'cloudinary';
 import dotenv from 'dotenv';
 import express from 'express';
 import multer from 'multer';
-import path from 'path';
 
 dotenv.config();
 
@@ -14,43 +13,33 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename(req, file, cb) {
-    cb(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-    );
-  }
-});
-
-function checkFileType(file, cb) {
-  const filetypes = /jpg|jpeg|png/;
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = filetypes.test(file.mimetype);
-  if (extname && mimetype) {
-    return cb(null, true);
-  } else {
-    cb('Images only!');
-  }
-}
+const storage = multer.memoryStorage(); // Store the uploaded file in memory
 
 const upload = multer({
   storage,
   fileFilter: (req, file, cb) => {
-    let ext = path.extname(file.originalname);
-    if (ext !== '.jpg' && ext !== '.jpeg' && ext !== '.png') {
+    const allowedTypes = ['image/jpeg', 'image/png'];
+    if (!allowedTypes.includes(file.mimetype)) {
       cb('File type is not supported', false);
-      return;
+    } else {
+      cb(null, true);
     }
   }
 });
 
 router.post('/', upload.single('image'), async (req, res) => {
   try {
-    const result = await cloudinary.uploader.upload(req.file.path);
+    // Read the uploaded image data as a base64 string
+    const base64Image = req.file.buffer.toString('base64');
+
+    // Upload the base64 image to Cloudinary
+    const result = await cloudinary.uploader.upload(
+      `data:${req.file.mimetype};base64,${base64Image}`,
+      {
+        folder: 'gadgetgizmo-images' // Optional folder in Cloudinary
+      }
+    );
+
     res.send({
       message: 'Image Uploaded',
       image: result.secure_url
