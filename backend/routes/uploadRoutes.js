@@ -1,8 +1,18 @@
+import { v2 as cloudinary } from 'cloudinary';
+import dotenv from 'dotenv';
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
 
+dotenv.config();
+
 const router = express.Router();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -28,14 +38,29 @@ function checkFileType(file, cb) {
 }
 
 const upload = multer({
-  storage
+  storage,
+  fileFilter: (req, file, cb) => {
+    let ext = path.extname(file.originalname);
+    if (ext !== '.jpg' && ext !== '.jpeg' && ext !== '.png') {
+      cb('File type is not supported', false);
+      return;
+    }
+  }
 });
 
-router.post('/', upload.single('image'), (req, res) => {
-  res.send({
-    message: 'Image Uploaded',
-    image: `/${req.file.path.replace(/\\/g, '/')}`
-  });
+router.post('/', upload.single('image'), async (req, res) => {
+  try {
+    const result = await cloudinary.uploader.upload(req.file.path);
+    res.send({
+      message: 'Image Uploaded',
+      image: result.secure_url
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: 'Image upload failed',
+      error: error.message
+    });
+  }
 });
 
 export default router;
