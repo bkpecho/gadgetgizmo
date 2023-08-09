@@ -1,3 +1,4 @@
+import { v2 as cloudinary } from 'cloudinary';
 import asyncHandler from '../middleware/asyncHandler.js';
 import Product from '../models/productModel.js';
 
@@ -60,22 +61,33 @@ const updateProduct = asyncHandler(async (req, res) => {
   const { name, price, description, image, brand, category, countInStock } =
     req.body;
 
-  const product = await Product.findById(req.params.id);
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      res.status(404);
+      throw new Error('Resource not found');
+    }
 
-  if (product) {
+    const isStaticImage = product.image === '/images/sample.jpg';
+
     product.name = name;
     product.price = price;
     product.description = description;
-    product.image = image;
     product.brand = brand;
     product.category = category;
     product.countInStock = countInStock;
 
+    if (!isStaticImage) {
+      const publicId = product.image.split('/').pop().split('.')[0];
+      await cloudinary.uploader.destroy(`gadgetgizmo-images/${publicId}`);
+    }
+
+    product.image = image;
+
     const updatedProduct = await product.save();
     res.json(updatedProduct);
-  } else {
-    res.status(404);
-    throw new Error('Resource not found');
+  } catch (error) {
+    res.status(500).json({ error: 'Product update failed' });
   }
 });
 
@@ -84,11 +96,19 @@ const updateProduct = asyncHandler(async (req, res) => {
 // @access Private / Admin
 const deleteProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
-
+  console.log(product.image);
   if (product) {
+    // Delete the image from Cloudinary
+    if (product.image) {
+      const publicId = product.image.split('/').pop().split('.')[0];
+      await cloudinary.uploader.destroy(`gadgetgizmo-images/${publicId}`);
+    }
+
+    // Delete the product from the database
     await Product.deleteOne({
       _id: product._id
     });
+
     res.status(200).json({ message: 'Product deleted' });
   } else {
     res.status(404);
