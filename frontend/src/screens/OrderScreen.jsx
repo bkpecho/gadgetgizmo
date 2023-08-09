@@ -4,6 +4,7 @@ import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import formatCurrency from '../../../backend/utils/currency';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import {
@@ -178,7 +179,8 @@ const OrderScreen = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ₱{item.price} = ₱{item.qty * item.price}
+                          {item.qty} x {formatCurrency(item.price)} ={' '}
+                          {formatCurrency(item.qty * item.price)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -197,22 +199,22 @@ const OrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>₱{order.itemsPrice}</Col>
+                  <Col>{formatCurrency(order.itemsPrice)}</Col>
                 </Row>
 
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>₱{order.shippingPrice}</Col>
+                  <Col>{formatCurrency(order.shippingPrice)}</Col>
                 </Row>
 
                 <Row>
                   <Col>Tax</Col>
-                  <Col>₱{order.taxPrice}</Col>
+                  <Col>{formatCurrency(order.taxPrice)}</Col>
                 </Row>
 
                 <Row>
                   <Col>Total</Col>
-                  <Col>₱{order.totalPrice}</Col>
+                  <Col>{formatCurrency(order.totalPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               {!order.isPaid && (

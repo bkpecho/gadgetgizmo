@@ -1,5 +1,6 @@
 import { Carousel, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import formatCurrency from '../../../backend/utils/currency';
 import { useGetTopProductsQuery } from '../slices/productsApiSlice';
 import Message from './Message';
 
@@ -16,9 +17,8 @@ const ProductCarousel = () => {
             <Image src={product.image} alt={product.name} />
             <Carousel.Caption className="carousel-caption p-4">
               <h3 style={{ color: 'white' }}>
-                {product.name} (₱{product.price})
+                {product.name} ({formatCurrency(product.price)})
               </h3>
-              <p>{product.description}</p>
             </Carousel.Caption>
           </Link>
         </Carousel.Item>

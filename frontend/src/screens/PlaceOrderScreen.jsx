@@ -3,6 +3,7 @@ import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import formatCurrency from '../../../backend/utils/currency';
 import CheckoutSteps from '../components/CheckoutSteps';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
@@ -84,7 +85,8 @@ const PlaceOrderScreen = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ₱{item.price} = ₱{item.qty * item.price}
+                          {item.qty} x {formatCurrency(item.price)} ={' '}
+                          {formatCurrency(item.qty * item.price)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -103,25 +105,25 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items:</Col>
-                  <Col>₱{cart.itemsPrice}</Col>
+                  <Col>{formatCurrency(cart.itemsPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping:</Col>
-                  <Col>₱{cart.shippingPrice}</Col>
+                  <Col>{formatCurrency(cart.shippingPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax:</Col>
-                  <Col>₱{cart.taxPrice}</Col>
+                  <Col>{formatCurrency(cart.taxPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total:</Col>
-                  <Col>₱{cart.totalPrice}</Col>
+                  <Col>{formatCurrency(cart.totalPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>

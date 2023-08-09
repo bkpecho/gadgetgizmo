@@ -11,6 +11,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import formatCurrency from '../../../backend/utils/currency';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import Meta from '../components/Meta';
@@ -96,10 +97,17 @@ const ProductScreen = () => {
                     text={`${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>Price: ₱{product.price}</ListGroup.Item>
+                <ListGroup.Item>
+                  <h2 className="text-danger" style={{ margin: '0' }}>
+                    {formatCurrency(product.price)}
+                  </h2>
+                </ListGroup.Item>
 
                 <ListGroup.Item>
-                  Description: {product.description}
+                  <p style={{ margin: '0 0 8px' }}>
+                    <strong>Description</strong>
+                  </p>{' '}
+                  {product.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
@@ -110,7 +118,7 @@ const ProductScreen = () => {
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                        <strong>₱{product.price}</strong>
+                        <strong>{formatCurrency(product.price)}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>

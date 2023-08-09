@@ -5,6 +5,7 @@ import { Button, Col, Form, Row, Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 import { toast } from 'react-toastify';
+import formatCurrency from '../../../backend/utils/currency';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { setCredentials } from '../slices/authSlice';
@@ -131,7 +132,7 @@ const ProfileScreen = () => {
                 <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>
-                  <td>{order.totalPrice}</td>
+                  <td>{formatCurrency(order.totalPrice)}</td>
                   <td>
                     {order.isPaid ? (
                       order.paidAt.substring(0, 10)

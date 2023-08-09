@@ -2,6 +2,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Table } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import formatCurrency from '../../../../backend/utils/currency';
 import Loader from '../../components/Loader';
 import Message from '../../components/Message';
 import { useGetOrdersQuery } from '../../slices/ordersApiSlice';
@@ -34,7 +35,7 @@ const OrderListScreen = () => {
                 <td>{order._id}</td>
                 <td>{order.suer && order.user.name}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
-                <td>${order.totalPrice}</td>
+                <td>{formatCurrency(order.totalPrice)}</td>
                 <td>
                   {order.isPaid ? (
                     order.paidAt.substring(0, 10)
