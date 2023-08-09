@@ -23,7 +23,17 @@ const importData = async () => {
     const adminUser = createdUsers[0]._id;
 
     const sampleProducts = products.map((product) => {
-      return { ...product, user: adminUser };
+      const randomRating = parseFloat(
+        (Math.random() * (5 - 3.9) + 3.9).toFixed(1)
+      );
+      const randomNumReviews = Math.floor(Math.random() * 30) + 2;
+
+      return {
+        ...product,
+        user: adminUser,
+        rating: randomRating,
+        numReviews: randomNumReviews
+      };
     });
 
     await Product.insertMany(sampleProducts);
