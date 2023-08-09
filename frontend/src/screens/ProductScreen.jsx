@@ -69,7 +69,7 @@ const ProductScreen = () => {
 
   return (
     <>
-      <Link className="btn btn-light my-3" to="/">
+      <Link className="btn btn-link my-3" to="/">
         Go Back
       </Link>
 
@@ -98,7 +98,7 @@ const ProductScreen = () => {
                   />
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <h2 className="text-danger" style={{ margin: '0' }}>
+                  <h2 className="text-success" style={{ margin: '0' }}>
                     {formatCurrency(product.price)}
                   </h2>
                 </ListGroup.Item>
@@ -107,7 +107,7 @@ const ProductScreen = () => {
                   <p style={{ margin: '0 0 8px' }}>
                     <strong>Description</strong>
                   </p>{' '}
-                  {product.description}
+                  <p className="lh-lg">{product.description}</p>
                 </ListGroup.Item>
               </ListGroup>
             </Col>

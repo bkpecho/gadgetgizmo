@@ -20,9 +20,11 @@ const HomeScreen = () => {
       {!keyword ? (
         <ProductCarousel />
       ) : (
-        <Link to="/" className="btn btn-light mb-3">
-          Go Back
-        </Link>
+        <>
+          <Link to="/" className="btn btn-link mb-3">
+            Go Back
+          </Link>
+        </>
       )}
       {isLoading ? (
         <Loader />
@@ -33,7 +35,14 @@ const HomeScreen = () => {
       ) : (
         <>
           {' '}
-          <h1>Latest Products</h1>
+          {!keyword ? (
+            <h1>Latest Products</h1>
+          ) : (
+            <h1>Results for &quot;{keyword}&quot;</h1>
+          )}
+          {data.products.length === 0 && (
+            <Message variant="info">No results</Message>
+          )}
           <Row>
             {data.products.map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
