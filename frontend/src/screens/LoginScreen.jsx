@@ -106,7 +106,7 @@ const LoginScreen = () => {
               disabled={isLoading}
               onClick={() => demoLoginHandler('demo')}
             >
-              DEMO
+              USER DEMO
             </Button>
             <Button
               type="button"
