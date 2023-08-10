@@ -2,9 +2,9 @@
 
 # Gadget Gizmo - eCommerce Platform
 
-> eCommerce platform built with the MERN stack & Redux.
+> Explore it live at https://gadgetgizmo.cyclic.app/
 
-Gadget Gizmo is a full-featured shopping cart with PayPal & credit/debit payments. See it in action at https://gadgetgizmo.cyclic.app/
+Gadget Gizmo is a robust eCommerce platform developed with the MERN stack and Redux, offering a complete shopping cart experience and streamlined payment processing, including PayPal and credit/debit options. 
 
 - [Features](#features)
 - [Usage](#usage)
@@ -30,24 +30,50 @@ Gadget Gizmo is a full-featured shopping cart with PayPal & credit/debit payment
 - Mark orders as delivered option
 - Checkout process (shipping, payment method, etc)
 - PayPal / credit card integration
+- Cloudinary image storage
 - Database seeder (products & users)
+- Deployed using Cyclic
 
 ## Usage
 
 - Create a MongoDB database and obtain your `MongoDB URI` - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
 - Create a PayPal account and obtain your `Client ID` - [PayPal Developer](https://developer.paypal.com/)
+- Sign up for a Cloudinary account and obtain your `Cloud Name`, `API Key`, and `API Secret` - [Cloudinary](https://cloudinary.com/users/register_free)
 
 ### Env Variables
 
 Rename the `.env.example` file to `.env` and add the following
 
 ```
-NODE_ENV = development
-PORT = 5000
-MONGO_URI = your mongodb uri
-JWT_SECRET = 'abc123'
-PAYPAL_CLIENT_ID = your paypal client id
-PAGINATION_LIMIT = 8
+# Set the environment mode: development or production
+NODE_ENV=development
+
+# Choose a port for your server
+PORT=5000
+
+# Replace with your MongoDB connection URI
+MONGO_URI=ADD_YOUR_MONGO_URI
+
+# Replace with your preferred JWT secret key
+JWT_SECRET=ADD_YOUR_SECRET
+
+# Replace with your PayPal client ID for payments
+PAYPAL_CLIENT_ID=ADD_YOUR_PAYPAL_CLIENT_ID
+
+# Set the number of items per page for pagination
+PAGINATION_LIMIT=PAGE_SIZE_NUMBER
+
+# Replace with your Cloudinary cloud name
+CLOUDINARY_CLOUD_NAME=ADD_YOUR_CLOUD_NAME
+
+# Replace with your Cloudinary API key
+CLOUDINARY_API_KEY=ADD_YOUR_API_KEY
+
+# Replace with your Cloudinary API secret
+CLOUDINARY_API_SECRET=ADD_YOUR_API_SECRET
+
+# Cloudinary URL with API key and secret
+CLOUDINARY_URL=cloudinary://ADD_YOUR_API_KEY:ADD_YOUR_API_SECRET@ADD_YOUR_CLOUD_NAME
 ```
 
 Change the JWT_SECRET and PAGINATION_LIMIT to what you want
