@@ -1,3 +1,5 @@
+<img src="https://imgur.com/rEFOZwS.png"/>
+
 # Gadget Gizmo - eCommerce Platform
 
 > eCommerce platform built with the MERN stack & Redux.
