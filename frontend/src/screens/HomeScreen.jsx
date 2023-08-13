@@ -2,6 +2,7 @@ import { Col, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Meta from '../components/Meta';
 import Paginate from '../components/Paginate';
 import Product from '../components/Product';
 import ProductCarousel from '../components/ProductCarousel';
@@ -34,7 +35,7 @@ const HomeScreen = () => {
         </Message>
       ) : (
         <>
-          {' '}
+          {keyword ? <Meta title={`${keyword} | Gadget Gizmo`} /> : <Meta />}
           {!keyword ? (
             <h1>Latest Products</h1>
           ) : (

@@ -5,15 +5,15 @@ const Meta = ({ title, description, keywords }) => {
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
+      <meta name="keyword" content={keywords} />
     </Helmet>
   );
 };
 
 Meta.defaultProps = {
-  title: 'Welcome to Gadget Gizmo!',
+  title: 'Welcome To Gadget Gizmo',
   description: 'We sell the best tech products online.',
-  keywords: 'pinoy, technology, electronics, buy gadgets'
+  keywords: 'electronics, buy electronics, cheap electroincs'
 };
 
 export default Meta;
