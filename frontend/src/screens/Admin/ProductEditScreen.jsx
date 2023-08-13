@@ -36,6 +36,27 @@ const ProductEditScreen = () => {
 
   const navigate = useNavigate();
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await updateProduct({
+        productId,
+        name,
+        price,
+        image,
+        brand,
+        category,
+        description,
+        countInStock
+      }).unwrap();
+      toast.success('Product updated');
+      refetch();
+      navigate('/admin/productlist');
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
+
   useEffect(() => {
     if (product) {
       setName(product.name);
@@ -47,29 +68,6 @@ const ProductEditScreen = () => {
       setDescription(product.description);
     }
   }, [product]);
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    const updatedProduct = {
-      productId,
-      name,
-      price,
-      image,
-      brand,
-      category,
-      countInStock,
-      description
-    };
-
-    const result = await updateProduct(updatedProduct);
-    if (result.error) {
-      toast.error(result.error);
-    } else {
-      toast.success('Product updated');
-      refetch();
-      navigate('/admin/productlist');
-    }
-  };
 
   const uploadFileHandler = async (e) => {
     const formData = new FormData();
