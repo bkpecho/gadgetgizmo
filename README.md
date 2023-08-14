@@ -2,14 +2,20 @@
 
 # Gadget Gizmo - eCommerce Platform
 
-> Explore it live at https://gadgetgizmo.cyclic.app/
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/bkpecho/gadgetgizmo/blob/main/LICENSE)
+[![Website Status](https://img.shields.io/badge/Website_Status-UP-green.svg)](https://gadgetgizmo.shop/)
+[![Follow Me](https://img.shields.io/twitter/follow/bkpecho?style=social)](https://twitter.com/bkpecho)
 
-Gadget Gizmo is a robust eCommerce platform developed with the MERN stack and Redux, offering a complete shopping cart experience and streamlined payment processing, including PayPal and credit/debit options. 
+Gadget Gizmo is a robust eCommerce platform developed with the MERN stack and Redux, offering a complete shopping cart experience and streamlined payment processing, including PayPal and credit/debit options.
+
+> **Explore it live at http://gadgetgizmo.shop/**
+
+## Table of Contents
 
 - [Features](#features)
 - [Usage](#usage)
   - [Env Variables](#env-variables)
-  - [Install Dependencies (frontend & backend)](#install-dependencies-frontend--backend)
+  - [Install Dependencies](#install-dependencies)
   - [Run](#run)
 - [Build & Deploy](#build--deploy)
   - [Seed Database](#seed-database)
@@ -32,7 +38,17 @@ Gadget Gizmo is a robust eCommerce platform developed with the MERN stack and Re
 - PayPal / credit card integration
 - Cloudinary image storage
 - Database seeder (products & users)
-- Deployed using Cyclic
+
+## Technology Stack
+
+- Frontend: React, Redux
+- Backend: Node.js, Express
+- Database: MongoDB
+- Image Storage: Cloudinary
+- Payment Integration: PayPal JS SDK
+- Styling: Bootstrap
+- Build Tool: Vite
+- Deployment: Cyclic, Fly.io
 
 ## Usage
 
@@ -76,9 +92,7 @@ CLOUDINARY_API_SECRET=ADD_YOUR_API_SECRET
 CLOUDINARY_URL=cloudinary://ADD_YOUR_API_KEY:ADD_YOUR_API_SECRET@ADD_YOUR_CLOUD_NAME
 ```
 
-Change the JWT_SECRET and PAGINATION_LIMIT to what you want
-
-### Install Dependencies (frontend & backend)
+### Install Dependencies
 
 ```
 npm install
@@ -116,16 +130,6 @@ npm run data:import
 npm run data:destroy
 ```
 
-```
-Sample User Logins
-
-admin@email.com (Admin)
-123456
-
-user@email.com (Customer)
-123456
-```
-
 ---
 
 ## License
@@ -134,9 +138,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-- **Bryan King Pecho**
-  - GitHub: [bkpecho](https://github.com/bkpecho)
-  - Twitter: [@bkpecho](https://twitter.com/bkpecho)
-  - LinkedIn: [in/bkpecho](https://www.linkedin.com/in/bkpecho/)
-  - Email: pechobk@gmail.com
-  - Portfolio: [bkpecho.tech](https://bkpecho.tech/)
+Hey there! I'm **Bryan King Pecho**, a passionate software developer behind Gadget Gizmo. Let's connect! 👋
+
+- Email: pechobk@gmail.com
+- Portfolio: [bkpecho.tech](https://bkpecho.tech/)
+- GitHub: [bkpecho](https://github.com/bkpecho)
+- LinkedIn: [in/bkpecho](https://www.linkedin.com/in/bkpecho/)
+- Twitter: [@bkpecho](https://twitter.com/bkpecho)
