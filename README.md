@@ -26,18 +26,18 @@
 ## Key Features
 Gadget Gizmo boasts a wide range of features including:
 
-- **Comprehensive Shopping Cart Functionality:** Seamlessly add, remove, and manage items in the shopping cart.
-- **Streamlined Checkout Process:** Effortlessly navigate the checkout process for a smooth transaction.
-- **Efficient Admin Product Management:** Admins enjoy efficient product management capabilities.
-- **User Profiles with Order History:** Users can access their order history conveniently.
-- **Detailed Admin Order View:** Administrators gain insights with a detailed view of orders.
-- **Simplified PayPal and Credit Card Integration:** Effortless payment options for users.
-- **User Reviews and Product Ratings:** Users can contribute reviews and ratings for products.
-- **Top Products Showcase Carousel:** Highlight top products in an engaging carousel.
-- **Product Search Capability:** Easily find desired products through the search feature.
-- **Cloudinary-Powered Image Storage:** Cloud-based image storage ensures optimal performance.
-- **Order Delivery Status Updates:** Users can stay informed about their order delivery status.
-- **Product Pagination for Easy Browsing:** Browse products seamlessly with pagination.
+- **Shopping Made Easy:** Seamlessly add, remove, and manage items in the shopping cart.
+- **Effortless Checkout:** Effortlessly navigate the checkout process for a smooth transaction.
+- **Admin Product Management:** Admins enjoy efficient product management capabilities.
+- **User-Centric Profiles:** Users can access their order history conveniently.
+- **Admin Order View:** Administrators gain insights with a detailed view of orders.
+- **Smooth PayPal Integration:** Effortless payment options for users.
+- **Feedback and Ratings:** Users can contribute reviews and ratings for products.
+- **Highlight Top Products:** Highlight top products in an engaging carousel.
+- **Efficient Product Search:** Easily find desired products through the search feature.
+- **Optimized Image Storage:** Cloud-based image storage ensures optimal performance.
+- **Order Updates:** Users can stay informed about their order delivery status.
+- **Browse with Ease:** Browse products seamlessly with pagination.
 
 ## Technology Stack
 The platform is built using the following technologies:
